@@ -22,7 +22,7 @@ if (!argv.file) {
 // read specified file
 const contents = fs.readFileSync(argv.file, "utf8");
 
-const splitOn = ';'
+const splitOn = ":";
 // split on new line
 const lines = contents.split(splitOn);
 
@@ -34,11 +34,24 @@ const finalLines = lines.map(line => {
     const matches = line.match(remRegex);
     if (matches && matches.length === 3) {
       replacedCount++;
-      return line.replace(matches, matches[1] * argv.multiplier + "px");
+      const newLine = line.replace(
+        matches[0],
+        matches[1] * argv.multiplier + "px"
+      );
+      //   console.log("replaced", line, "with", newLine);
+      return newLine;
     }
   }
   return line;
 });
 
-fs.writeFileSync(argv.file, finalLines.join(splitOn), "utf8");
-console.log("Replaced", replacedCount, "rem values to px");
+const finalContent = finalLines.join(splitOn);
+// console.log(finalContent);
+try {
+  fs.writeFileSync(argv.file, finalContent);
+} catch (error) {
+  console.log("[rem-to-px] Error while persisting file", error);
+  return;
+}
+
+console.log("[rem-to-px] Replaced", replacedCount, "rem values to px");

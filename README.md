@@ -18,10 +18,12 @@ or
 yarn add https://github.com/web-ridge/rem-to-px --dev
 ```
 
-
 ## Example
 
 We are using this in our "scripts" in our projects like this
+
 ```
 node node_modules/rem-to-px --file ./assets/css/editor-style-block.css --multiplier 10
 ```
+
+Multiplier of 10 takes care of e.g. 1.5rem to 15px;
