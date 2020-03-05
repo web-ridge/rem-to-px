@@ -22,8 +22,9 @@ if (!argv.file) {
 // read specified file
 const contents = fs.readFileSync(argv.file, "utf8");
 
+const splitOn = ';'
 // split on new line
-const lines = contents.split("\n");
+const lines = contents.split(splitOn);
 
 // make regex which converts 'font-size: 1.15rem' to [1.15rem, 1.5, rem]
 const remRegex = new RegExp("(\\d.?\\d?)(rem)");
@@ -39,5 +40,5 @@ const finalLines = lines.map(line => {
   return line;
 });
 
-fs.writeFileSync(argv.file, finalLines.join("\n"), "utf8");
+fs.writeFileSync(argv.file, finalLines.join(splitOn), "utf8");
 console.log("Replaced", replacedCount, "rem values to px");
