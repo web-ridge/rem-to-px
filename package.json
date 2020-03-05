@@ -1,4 +1,6 @@
 {
+  "name": "rem-to-px",
+  "version": "0.1",
   "dependencies": {
     "yargs": "^15.1.0"
   }
