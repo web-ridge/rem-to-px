@@ -1,6 +1,7 @@
 {
   "name": "rem-to-px",
   "version": "1.0.0",
+  "license": "MIT",
   "dependencies": {
     "yargs": "^15.1.0"
   }
