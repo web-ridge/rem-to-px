@@ -4,7 +4,7 @@ rem-to-px cli program which you can put in your package.json. It replaces rem wi
 
 # Why?
 
-We use this to fix wordpress styling in the admin because all font-sizes of our template looks off.
+We use this to fix Wordpress styling in the Gunterberg admin because all font-sizes of our template looks off.
 
 ## Install
 
